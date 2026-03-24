@@ -995,8 +995,34 @@ img, canvas { display: block; max-width: 100%; }
 .project-card.hidden { display: none; }
 
 .project-image {
+  position: relative;
   overflow: hidden;
   aspect-ratio: 16/9;
+  background: #0B0B0D;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1.1); /* Start slightly zoomed in for zoom-out effect */
+}
+
+.project-card:hover .project-img {
+  transform: scale(1); /* Zoom out on hover */
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* Subtle black overlay */
+  transition: background var(--transition);
+  z-index: 2;
+}
+
+.project-card:hover .project-overlay {
+  background: rgba(0, 0, 0, 0.2); /* Lighten overlay on hover */
 }
 
 .project-img-bg {
@@ -1006,11 +1032,12 @@ img, canvas { display: block; max-width: 100%; }
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1.1);
 }
 
 .project-card:hover .project-img-bg {
-  transform: scale(1.06);
+  transform: scale(1);
 }
 
 .project-initials {
@@ -1019,6 +1046,8 @@ img, canvas { display: block; max-width: 100%; }
   color: rgba(123, 167, 196, 0.25);
   letter-spacing: 0.05em;
   user-select: none;
+  position: relative;
+  z-index: 3;
 }
 
 .project-body {
