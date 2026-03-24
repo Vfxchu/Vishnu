@@ -811,9 +811,9 @@ img, canvas { display: block; max-width: 100%; }
 .sk-pill:hover { background: #7BA7C410; color: #7BA7C4; }
 
 /* Proficiency bars */
-.skills-proficiency { margin-bottom: 64px; }
-.prof-label { font-size: 13px; letter-spacing: 0.15em; color: #444; text-transform: uppercase; margin-bottom: 24px; }
-.prof-bars { display: flex; flex-direction: column; gap: 20px; max-width: 640px; }
+.skills-proficiency { margin-bottom: 64px; display: flex; flex-direction: column; align-items: center; }
+.prof-label { font-size: 13px; letter-spacing: 0.15em; color: #444; text-transform: uppercase; margin-bottom: 24px; text-align: center; }
+.prof-bars { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 640px; }
 .prof-row { display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto auto; gap: 6px 8px; }
 .prof-name { font-size: 13px; color: #888; grid-column: 1; grid-row: 1; }
 .prof-pct { font-size: 12px; color: #7BA7C4; font-weight: 700; grid-column: 2; grid-row: 1; }
