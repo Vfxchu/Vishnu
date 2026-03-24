@@ -132,61 +132,36 @@ class Portfolio {
     // Skills pills stagger
     this._animateSkills();
 
-    // Timeline items
-    document.querySelectorAll('.timeline-item').forEach((item, i) => {
-      gsap.from(item, {
-        scrollTrigger: { trigger: item, start: 'top 85%', once: true },
-        opacity: 0,
-        x: -40,
-        duration: 0.7,
-        ease: 'power2.out',
-        delay: i * 0.1
-      });
+    // Experience
+    gsap.from('.exp-header', { scrollTrigger: { trigger: '#experience', start: 'top 80%', once: true }, opacity: 0, y: 30, duration: 0.7, ease: 'power2.out' });
+    document.querySelectorAll('.exp-item').forEach((item, i) => {
+      gsap.from(item.querySelector('.exp-dot'), { scrollTrigger: { trigger: item, start: 'top 85%', once: true }, opacity: 0, scale: 0, duration: 0.4, ease: 'back.out(1.7)', delay: i * 0.15 });
+      gsap.from(item.querySelector('.exp-card'), { scrollTrigger: { trigger: item, start: 'top 85%', once: true }, opacity: 0, x: -30, duration: 0.7, ease: 'power2.out', delay: i * 0.15 });
     });
 
-    // Project cards
+    // Work
+    gsap.from('.work-header', { scrollTrigger: { trigger: '#work', start: 'top 80%', once: true }, opacity: 0, y: 30, duration: 0.7, ease: 'power2.out' });
     document.querySelectorAll('.project-card').forEach((card, i) => {
-      gsap.from(card, {
-        scrollTrigger: { trigger: card, start: 'top 90%', once: true },
-        opacity: 0,
-        y: 30,
-        duration: 0.6,
-        ease: 'power2.out',
-        delay: (i % 3) * 0.1
-      });
+      gsap.from(card, { scrollTrigger: { trigger: card, start: 'top 90%', once: true }, opacity: 0, y: 50, scale: 0.95, duration: 0.6, ease: 'power2.out', delay: (i % 3) * 0.06 });
     });
 
-    // Education + cert cards
-    document.querySelectorAll('.edu-card, .cert-card').forEach((card, i) => {
-      gsap.from(card, {
-        scrollTrigger: { trigger: card, start: 'top 88%', once: true },
-        opacity: 0,
-        y: 25,
-        duration: 0.6,
-        ease: 'power2.out',
-        delay: i * 0.1
-      });
+    // Education
+    gsap.from('.edu-header', { scrollTrigger: { trigger: '#education', start: 'top 80%', once: true }, opacity: 0, y: 30, duration: 0.7, ease: 'power2.out' });
+    document.querySelectorAll('.edu-card').forEach((card, i) => {
+      gsap.from(card, { scrollTrigger: { trigger: card, start: 'top 88%', once: true }, opacity: 0, y: 40, duration: 0.6, ease: 'power2.out', delay: i * 0.1 });
+    });
+    document.querySelectorAll('.cert-card').forEach((card, i) => {
+      gsap.from(card, { scrollTrigger: { trigger: card, start: 'top 88%', once: true }, opacity: 0, y: 30, scale: 0.95, duration: 0.6, ease: 'power2.out', delay: i * 0.08 });
     });
 
-    // Contact heading
-    gsap.from('.contact-heading', {
-      scrollTrigger: { trigger: '#contact', start: 'top 75%', once: true },
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: 'power3.out'
+    // Contact
+    gsap.from('.contact-tag', { scrollTrigger: { trigger: '#contact', start: 'top 80%', once: true }, opacity: 0, y: 20, duration: 0.6, ease: 'power2.out' });
+    gsap.from('.contact-card', { scrollTrigger: { trigger: '#contact', start: 'top 75%', once: true }, opacity: 0, y: 50, scale: 0.97, duration: 0.8, ease: 'power3.out', delay: 0.1 });
+    document.querySelectorAll('.contact-link-card').forEach((el, i) => {
+      gsap.from(el, { scrollTrigger: { trigger: '.contact-links-grid', start: 'top 85%', once: true }, opacity: 0, x: -20, duration: 0.5, ease: 'power2.out', delay: i * 0.08 });
     });
-
-    // Section titles + labels (other sections only — about handled in _animateAbout)
-    document.querySelectorAll('.section-label, .section-title').forEach(el => {
-      gsap.from(el, {
-        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
-        opacity: 0,
-        y: 24,
-        duration: 0.7,
-        ease: 'power2.out'
-      });
-    });
+    gsap.from(['.btn-primary-contact', '.btn-outline-contact'], { scrollTrigger: { trigger: '.contact-cta-row', start: 'top 88%', once: true }, opacity: 0, y: 20, duration: 0.5, ease: 'power2.out', stagger: 0.1 });
+    gsap.from('.contact-badge', { scrollTrigger: { trigger: '.contact-badge', start: 'top 90%', once: true }, opacity: 0, duration: 0.6, ease: 'power2.out', delay: 0.4 });
   }
 
   // === ABOUT SECTION ANIMATIONS ===
