@@ -784,13 +784,13 @@ img, canvas { display: block; max-width: 100%; }
 .skills-inner { max-width: 1200px; margin: 0 auto; }
 
 /* Header */
-.skills-header { margin-bottom: 48px; }
+.skills-header { margin-bottom: 48px; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .skills-title { font-size: clamp(28px, 4vw, 48px); font-weight: 800; color: #fff; margin: 16px 0 8px; letter-spacing: -0.02em; }
 .skills-title-accent { color: #7BA7C4; }
 .skills-subtitle { font-size: 13px; color: #444; }
 
 /* Filter tabs */
-.skills-filter-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+.skills-filter-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; justify-content: center; }
 .sk-filter-btn { padding: 6px 16px; border-radius: 100px; border: 1px solid #2a2a2a; background: transparent; color: #ffffff; font-size: 13px; cursor: pointer; transition: all 0.2s; }
 .sk-filter-btn:hover { border-color: #7BA7C4; background: #7BA7C410; color: #ffffff; }
 .sk-filter-btn.active { background: #7BA7C4; border-color: #7BA7C4; color: #0B0B0D; }
