@@ -264,6 +264,16 @@ img, canvas { display: block; max-width: 100%; }
   overflow: hidden;
 }
 
+/* Subtle dark gradient overlay to ensure text visibility over busy backgrounds */
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11, 11, 13, 0.8) 0%, rgba(11, 11, 13, 0.4) 40%, transparent 100%);
+  z-index: 5;
+  pointer-events: none;
+}
+
 .hero-canvas-wrapper {
   position: absolute;
   inset: 0;
@@ -327,7 +337,7 @@ img, canvas { display: block; max-width: 100%; }
   color: var(--accent);
   line-height: 1;
   margin-bottom: 0.4rem;
-  text-shadow: 0 0 80px rgba(123, 167, 196, 0.4);
+  text-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 0 0 80px rgba(123, 167, 196, 0.4);
   opacity: 0;
   transform: translateY(30px);
 }
@@ -337,6 +347,7 @@ img, canvas { display: block; max-width: 100%; }
   font-weight: 600;
   color: var(--text);
   margin-bottom: 1.25rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   opacity: 0;
   transform: translateY(20px);
 }
@@ -1210,11 +1221,25 @@ img, canvas { display: block; max-width: 100%; }
   .footer-socials { justify-content: center; }
   .footer-bottom { flex-direction: column; text-align: center; }
 
-  .hero-text { left: 1.5rem; right: 1.5rem; bottom: 2rem; max-width: none; }
-  .hero-name { font-size: clamp(2.8rem, 15vw, 5rem); }
-  .hero-tags { display: grid; grid-template-columns: auto auto; gap: 0.4rem 0.75rem; }
+  .hero-text { 
+    left: 1.5rem; 
+    right: 1.5rem; 
+    bottom: 4rem; 
+    max-width: none;
+    background: rgba(11, 11, 13, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(123, 167, 196, 0.1);
+  }
+  .hero-name { font-size: clamp(2.8rem, 15vw, 5rem); text-shadow: 0 0 30px rgba(0, 0, 0, 0.9); }
+  .hero-tags { display: grid; grid-template-columns: auto auto; gap: 0.4rem 0.75rem; text-shadow: 0 1px 5px rgba(0,0,0,0.5); }
   .hero-tags .sep { display: none; }
   .hero-scroll-hint { display: none; }
+
+  #hero::after {
+    background: linear-gradient(to top, rgba(11, 11, 13, 0.9) 0%, rgba(11, 11, 13, 0.6) 50%, rgba(11, 11, 13, 0.3) 100%);
+  }
 }
 
 @media (max-width: 480px) {
