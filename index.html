@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vishnu Sreekumar — Frontend Developer & Full Stack AI Automation Engineer based in Dubai, UAE." />
+  <title>Vishnu Sreekumar — Frontend Developer &amp; AI Engineer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ─── LOADING OVERLAY ─────────────────────────────────────── -->
+  <div id="loading">
+    <div class="loading-inner">
+      <div class="loading-logo">VS.</div>
+      <div class="loading-text">Loading Experience</div>
+      <div class="loading-bar-track">
+        <div id="loadingBar"></div>
+      </div>
+      <div class="loading-count"><span id="loadingCount">0</span>%</div>
+    </div>
+  </div>
+
+  <!-- ─── HEADER ───────────────────────────────────────────────── -->
+  <header id="site-header">
+    <a href="#hero" class="logo">VS.</a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn-outline">Get in touch</a>
+    <button class="mobile-menu-btn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- ─── HERO ─────────────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-canvas-wrapper">
+      <canvas id="scrubCanvas"></canvas>
+      <canvas id="shaderCanvas"></canvas>
+      <div class="hero-glow-left"></div>
+      <div class="hero-glow-right"></div>
+    </div>
+    <div class="hero-text">
+      <p class="hero-subtitle">Hey, I'm</p>
+      <h1 class="hero-name">VISHNU</h1>
+      <p class="hero-title">Frontend Developer &amp; AI Engineer</p>
+      <div class="hero-tags">
+        <span>React.js</span>
+        <span class="sep">|</span>
+        <span>Node.js</span>
+        <span class="sep">|</span>
+        <span>AI Automation</span>
+        <span class="sep">|</span>
+        <span>Full Stack</span>
+        <span class="sep">|</span>
+        <span>WordPress</span>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ────────────────────────────────────────────────── -->
+  <section id="about">
+    <div class="about-grid-lines" aria-hidden="true"></div>
+    <div class="about-inner">
+
+      <!-- 1. Entry tag -->
+      <div class="about-tag">
+        <span class="about-tag-dot"></span>
+        <span>About Me</span>
+      </div>
+
+      <!-- 2. Hero split row -->
+      <div class="about-hero-row">
+
+        <!-- LEFT: title + bio + badge -->
+        <div class="about-left">
+          <h2 class="about-title">
+            <span class="at-white">Building</span>
+            <span class="at-accent">intelligent</span>
+            <span class="at-outline">experiences.</span>
+          </h2>
+          <p class="about-bio">
+            Frontend Developer &amp; AI Automation Engineer with
+            <mark>2+ years</mark> shipping production apps across real estate,
+            hospitality, e-commerce and education in <mark>Dubai, UAE</mark>.
+            Specialized in <mark>React.js</mark>, Claude API integration,
+            and workflow automation.
+          </p>
+          <div class="about-available">
+            <span class="avail-dot"></span>
+            Available for freelance — Dubai
+          </div>
+        </div>
+
+        <!-- RIGHT: 2×2 tilt cards -->
+        <div class="about-cards">
+
+          <div class="about-card">
+            <span class="ac-num">01</span>
+            <div class="ac-icon">
+              <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 class="ac-title">Frontend Dev</h3>
+            <p class="ac-desc">React, Tailwind, Vite — pixel-perfect UIs from Figma to prod</p>
+          </div>
+
+          <div class="about-card">
+            <span class="ac-num">02</span>
+            <div class="ac-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.78" y2="4.22"/></svg>
+            </div>
+            <h3 class="ac-title">AI Integration</h3>
+            <p class="ac-desc">Claude API, GPT API embedded into operational dashboards</p>
+          </div>
+
+          <div class="about-card">
+            <span class="ac-num">03</span>
+            <div class="ac-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3 class="ac-title">Full Stack</h3>
+            <p class="ac-desc">Node.js, MySQL, Supabase — end-to-end product delivery</p>
+          </div>
+
+          <div class="about-card">
+            <span class="ac-num">04</span>
+            <div class="ac-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="ac-title">Automation</h3>
+            <p class="ac-desc">n8n, Zapier workflows replacing manual ops at scale</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 3. Stats strip -->
+      <div class="about-stats">
+        <div class="as-cell">
+          <span class="as-num" data-target="2" data-suffix="+">0+</span>
+          <span class="as-label">Years Experience</span>
+        </div>
+        <div class="as-cell">
+          <span class="as-num" data-target="12" data-suffix="+">0+</span>
+          <span class="as-label">Projects Live</span>
+        </div>
+        <div class="as-cell">
+          <span class="as-num" data-target="4" data-suffix="">0</span>
+          <span class="as-label">Industries</span>
+        </div>
+        <div class="as-cell">
+          <span class="as-num" data-target="10" data-suffix="+">0+</span>
+          <span class="as-label">Automations Built</span>
+        </div>
+      </div>
+
+      <!-- 4. Tech marquee -->
+      <div class="about-marquee-wrap">
+        <div class="about-marquee">
+          <div class="marquee-track">
+            <span class="mq-hi">React.js</span><span class="mq-sep">·</span>
+            <span class="mq-lo">Node.js</span><span class="mq-sep">·</span>
+            <span class="mq-hi">Claude API</span><span class="mq-sep">·</span>
+            <span class="mq-lo">Tailwind CSS</span><span class="mq-sep">·</span>
+            <span class="mq-hi">n8n Automation</span><span class="mq-sep">·</span>
+            <span class="mq-hi">Python</span><span class="mq-sep">·</span>
+            <span class="mq-lo">MySQL</span><span class="mq-sep">·</span>
+            <span class="mq-hi">AWS</span><span class="mq-sep">·</span>
+            <span class="mq-lo">WordPress</span><span class="mq-sep">·</span>
+            <span class="mq-hi">Supabase</span><span class="mq-sep">·</span>
+            <span class="mq-lo">GPT API</span><span class="mq-sep">·</span>
+            <span class="mq-hi">Docker</span><span class="mq-sep">·</span>
+            <span class="mq-lo">GSAP</span><span class="mq-sep">·</span>
+            <span class="mq-hi">FastAPI</span><span class="mq-sep">·</span>
+            <span class="mq-lo">Zapier</span><span class="mq-sep">·</span>
+            <span class="mq-lo">GitHub Actions</span><span class="mq-sep">·</span>
+            <span class="mq-lo">REST APIs</span><span class="mq-sep">·</span>
+            <span class="mq-lo">Vite</span><span class="mq-sep">·</span>
+            <span class="mq-hi">LangChain</span><span class="mq-sep">·</span>
+            <span class="mq-lo">Prompt Engineering</span><span class="mq-sep">·</span>
+            <span class="mq-lo">CI/CD</span><span class="mq-sep">·</span>
+            <span class="mq-lo">PHP</span><span class="mq-sep">·</span>
+            <!-- duplicate for seamless loop -->
+            <span class="mq-hi">React.js</span><span class="mq-sep">·</span>
+            <span class="mq-lo">Node.js</span><span class="mq-sep">·</span>
+            <span class="mq-hi">Claude API</span><span class="mq-sep">·</span>
+            <span class="mq-lo">Tailwind CSS</span><span class="mq-sep">·</span>
+            <span class="mq-hi">n8n Automation</span><span class="mq-sep">·</span>
+            <span class="mq-hi">Python</span><span class="mq-sep">·</span>
+            <span class="mq-lo">MySQL</span><span class="mq-sep">·</span>
+            <span class="mq-hi">AWS</span><span class="mq-sep">·</span>
+            <span class="mq-lo">WordPress</span><span class="mq-sep">·</span>
+            <span class="mq-hi">Supabase</span><span class="mq-sep">·</span>
+            <span class="mq-lo">GPT API</span><span class="mq-sep">·</span>
+            <span class="mq-hi">Docker</span><span class="mq-sep">·</span>
+            <span class="mq-lo">GSAP</span><span class="mq-sep">·</span>
+            <span class="mq-hi">FastAPI</span><span class="mq-sep">·</span>
+            <span class="mq-lo">Zapier</span><span class="mq-sep">·</span>
+            <span class="mq-lo">GitHub Actions</span><span class="mq-sep">·</span>
+            <span class="mq-lo">REST APIs</span><span class="mq-sep">·</span>
+            <span class="mq-lo">Vite</span><span class="mq-sep">·</span>
+            <span class="mq-hi">LangChain</span><span class="mq-sep">·</span>
+            <span class="mq-lo">Prompt Engineering</span><span class="mq-sep">·</span>
+            <span class="mq-lo">CI/CD</span><span class="mq-sep">·</span>
+            <span class="mq-lo">PHP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Orbit rings -->
+      <div class="about-orbit-section">
+        <p class="orbit-label-title">Core Stack — always in orbit</p>
+        <div class="orbit-container">
+          <div class="orbit-center">VS.</div>
+
+          <div class="orbit-ring ring-1">
+            <div class="orbit-item" data-angle="0">
+              <span class="orbit-dot dot-1"></span>
+              <span class="orbit-text">React.js</span>
+            </div>
+          </div>
+
+          <div class="orbit-ring ring-2">
+            <div class="orbit-item" data-angle="0"><span class="orbit-dot dot-2"></span><span class="orbit-text">n8n</span></div>
+            <div class="orbit-item" data-angle="90"><span class="orbit-dot dot-2"></span><span class="orbit-text">Python</span></div>
+            <div class="orbit-item" data-angle="180"><span class="orbit-dot dot-2"></span><span class="orbit-text">Node.js</span></div>
+            <div class="orbit-item" data-angle="270"><span class="orbit-dot dot-2"></span><span class="orbit-text">AWS</span></div>
+          </div>
+
+          <div class="orbit-ring ring-3">
+            <div class="orbit-item" data-angle="0"><span class="orbit-dot dot-3"></span><span class="orbit-text">Docker</span></div>
+            <div class="orbit-item" data-angle="60"><span class="orbit-dot dot-3"></span><span class="orbit-text">Zapier</span></div>
+            <div class="orbit-item" data-angle="120"><span class="orbit-dot dot-3"></span><span class="orbit-text">FastAPI</span></div>
+            <div class="orbit-item" data-angle="180"><span class="orbit-dot dot-3"></span><span class="orbit-text">Claude API</span></div>
+            <div class="orbit-item" data-angle="240"><span class="orbit-dot dot-3"></span><span class="orbit-text">CI/CD</span></div>
+            <div class="orbit-item" data-angle="300"><span class="orbit-dot dot-3"></span><span class="orbit-text">GitHub Actions</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. CTA footer row -->
+      <div class="about-cta-row">
+        <a href="#contact" class="btn-outline">Get in touch</a>
+        <a href="Asset/Vishnu_FrontendDev_Resume.pdf" download class="btn-outline btn-resume">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Resume
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── SKILLS ───────────────────────────────────────────────── -->
+  <section id="skills">
+    <div class="skills-inner">
+
+      <!-- 1. Header -->
+      <div class="skills-header">
+        <div class="about-tag">
+          <span class="about-tag-dot"></span>
+          <span>Skills</span>
+        </div>
+        <h2 class="skills-title">What I <span class="skills-title-accent">build with</span></h2>
+        <p class="skills-subtitle">12 categories · 50+ technologies</p>
+      </div>
+
+      <!-- 2. Filter tabs -->
+      <div class="skills-filter-row">
+        <button class="sk-filter-btn active" data-filter="all">All</button>
+        <button class="sk-filter-btn" data-filter="frontend">Frontend</button>
+        <button class="sk-filter-btn" data-filter="backend">Backend</button>
+        <button class="sk-filter-btn" data-filter="ai">AI &amp; Automation</button>
+        <button class="sk-filter-btn" data-filter="devops">DevOps</button>
+        <button class="sk-filter-btn" data-filter="cms">CMS</button>
+      </div>
+
+      <!-- 3. Category cards grid -->
+      <div class="skills-cards-grid">
+
+        <div class="sk-card" data-cat="frontend">
+          <div class="sk-card-header">
+            <div class="sk-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="5,12 2,9 5,6"/><polyline points="13,6 16,9 13,12"/><line x1="10" y1="4" x2="8" y2="14"/></svg></div>
+            <span class="sk-cat-name">Core Frontend</span><span class="sk-count">7</span>
+          </div>
+          <div class="sk-pills">
+            <span class="sk-pill hot">HTML5</span><span class="sk-pill hot">CSS3</span><span class="sk-pill hot">JavaScript ES6+</span><span class="sk-pill">TypeScript</span><span class="sk-pill">Responsive Design</span><span class="sk-pill">CSS Animations</span><span class="sk-pill">Sass/SCSS</span>
+          </div>
+        </div>
+
+        <div class="sk-card" data-cat="frontend">
+          <div class="sk-card-header">
+            <div class="sk-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="9" r="7"/><line x1="2" y1="9" x2="16" y2="9"/><path d="M9 2a13 13 0 0 1 0 14M9 2a13 13 0 0 0 0 14"/></svg></div>
+            <span class="sk-cat-name">Frameworks &amp; Libraries</span><span class="sk-count">8</span>
+          </div>
+          <div class="sk-pills">
+            <span class="sk-pill hot">React.js</span><span class="sk-pill hot">Tailwind CSS</span><span class="sk-pill">Next.js</span><span class="sk-pill">Angular</span><span class="sk-pill">Bootstrap</span><span class="sk-pill">Sass/SCSS</span><span class="sk-pill">Three.js</span><span class="sk-pill">GSAP</span>
+          </div>
+        </div>
+
+        <div class="sk-card" data-cat="frontend">
+          <div class="sk-card-header">
+            <div class="sk-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 3H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1z"/><path d="M7 7h4M7 11h2"/></svg></div>
+            <span class="sk-cat-name">Build Tools</span><span class="sk-count">8</span>
+          </div>
+          <div class="sk-pills">
+            <span class="sk-pill hot">Vite</span><span class="sk-pill">Webpack</span><span class="sk-pill">npm</span><span class="sk-pill">yarn</span><span class="sk-pill">Git</span><span class="sk-pill">GitHub</span><span class="sk-pill">GitLab</span><span class="sk-pill">GitHub Actions</span>
+          </div>
+        </div>
+
+        <div class="sk-card" data-cat="ai">
+          <div class="sk-card-header">
+            <div class="sk-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="9" r="3"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="9" y1="14" x2="9" y2="17"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="14" y1="9" x2="17" y2="9"/><line x1="3.2" y1="3.2" x2="5.4" y2="5.4"/><line x1="12.6" y1="12.6" x2="14.8" y2="14.8"/><line x1="14.8" y1="3.2" x2="12.6" y2="5.4"/><line x1="5.4" y1="12.6" x2="3.2" y2="14.8"/></svg></div>
+            <span class="sk-cat-name">AI &amp; Automation</span><span class="sk-count">8</span>
+          </div>
+          <div class="sk-pills">
+            <span class="sk-pill hot">Claude API</span><span class="sk-pill hot">GPT API</span><span class="sk-pill hot">n8n</span><span class="sk-pill">Zapier</span><span class="sk-pill">LangChain</span><span class="sk-pill">Prompt Engineering</span><span class="sk-pill">FastAPI</span><span class="sk-pill">Python Automation</span>
+          </div>
+        </div>
+
+        <div class="sk-card" data-cat="backend">
+          <div class="sk-card-header">
+            <div class="sk-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="14" height="4" rx="1"/><rect x="2" y="7" width="14" height="4" rx="1"/><rect x="2" y="12" width="14" height="4" rx="1"/></svg></div>
+            <span class="sk-cat-name">Backend Supporting</span><span class="sk-count">7</span>
+          </div>
+          <div class="sk-pills">
+            <span class="sk-pill hot">Node.js</span><span class="sk-pill hot">MySQL</span><span class="sk-pill hot">Supabase</span><span class="sk-pill">PHP</span><span class="sk-pill">Express.js</span><span class="sk-pill">REST APIs</span><span class="sk-pill">Webhooks</span>
+          </div>
+        </div>
+
+        <div class="sk-card" data-cat="backend">
+          <div class="sk-card-header">
+            <div class="sk-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="9" cy="5" rx="7" ry="2.5"/><path d="M2 5v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V5"/><path d="M2 9v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V9"/></svg></div>
+            <span class="sk-cat-name">API Integration</span><span class="sk-count">7</span>
+          </div>
+          <div class="sk-pills">
+            <span class="sk-pill hot">Meta Graph API</span><span class="sk-pill hot">GA4 API</span><span class="sk-pill">REST APIs</span><span class="sk-pill">Google Ads API</span><span class="sk-pill">Airtable</span><span class="sk-pill">Notion</span><span class="sk-pill">Webhooks</span>
+          </div>
+        </div>
+
+        <div class="sk-card" data-cat="devops">
+          <div class="sk-card-header">
+            <div class="sk-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2l7 4v6l-7 4-7-4V6z"/></svg></div>
+            <span class="sk-cat-name">DevOps &amp; Cloud</span><span class="sk-count">8</span>
+          </div>
+          <div class="sk-pills">
+            <span class="sk-pill hot">AWS</span><span class="sk-pill hot">Docker</span><span class="sk-pill">AWS EC2</span><span class="sk-pill">AWS RDS</span><span class="sk-pill">AWS Route53</span><span class="sk-pill">Docker Compose</span><span class="sk-pill">GitHub Actions</span><span class="sk-pill">CI/CD</span>
+          </div>
+        </div>
+
+        <div class="sk-card" data-cat="devops">
+          <div class="sk-card-header">
+            <div class="sk-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2l6 3v5c0 3-2.7 5.5-6 6.5C3.7 15.5 1 13 1 10V5z"/></svg></div>
+            <span class="sk-cat-name">Infrastructure &amp; Hosting</span><span class="sk-count">8</span>
+          </div>
+          <div class="sk-pills">
+            <span class="sk-pill hot">Hostinger</span><span class="sk-pill hot">Cloudflare</span><span class="sk-pill">LiteSpeed</span><span class="sk-pill">SSL</span><span class="sk-pill">DNS</span><span class="sk-pill">Uptime Monitoring</span><span class="sk-pill">Server Admin</span><span class="sk-pill">Backups</span>
+          </div>
+        </div>
+
+        <div class="sk-card" data-cat="cms">
+          <div class="sk-card-header">
+            <div class="sk-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="14" height="14" rx="2"/><line x1="2" y1="7" x2="16" y2="7"/><line x1="7" y1="7" x2="7" y2="16"/></svg></div>
+            <span class="sk-cat-name">CMS &amp; Builders</span><span class="sk-count">7</span>
+          </div>
+          <div class="sk-pills">
+            <span class="sk-pill hot">WordPress</span><span class="sk-pill hot">WooCommerce</span><span class="sk-pill">Elementor</span><span class="sk-pill">Houzez</span><span class="sk-pill">OceanWP</span><span class="sk-pill">Yoast SEO</span><span class="sk-pill">Custom PHP Plugins</span>
+          </div>
+        </div>
+
+        <div class="sk-card" data-cat="frontend">
+          <div class="sk-card-header">
+            <div class="sk-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="5"/><line x1="12" y1="12" x2="16" y2="16"/></svg></div>
+            <span class="sk-cat-name">SEO &amp; Performance</span><span class="sk-count">6</span>
+          </div>
+          <div class="sk-pills">
+            <span class="sk-pill hot">Core Web Vitals</span><span class="sk-pill hot">Lighthouse</span><span class="sk-pill">On-Page SEO</span><span class="sk-pill">Technical SEO</span><span class="sk-pill">Yoast SEO</span><span class="sk-pill">Google Analytics</span>
+          </div>
+        </div>
+
+      </div><!-- /skills-cards-grid -->
+
+      <!-- 4. Proficiency bars -->
+      <div class="skills-proficiency">
+        <p class="prof-label">Proficiency highlights</p>
+        <div class="prof-bars">
+          <div class="prof-row" data-pct="95"><span class="prof-name">React.js + Tailwind</span><span class="prof-pct">95%</span><div class="prof-track"><div class="prof-fill"></div></div></div>
+          <div class="prof-row" data-pct="90"><span class="prof-name">n8n + Zapier Automation</span><span class="prof-pct">90%</span><div class="prof-track"><div class="prof-fill"></div></div></div>
+          <div class="prof-row" data-pct="92"><span class="prof-name">WordPress + WooCommerce</span><span class="prof-pct">92%</span><div class="prof-track"><div class="prof-fill"></div></div></div>
+          <div class="prof-row" data-pct="88"><span class="prof-name">Claude API + GPT API</span><span class="prof-pct">88%</span><div class="prof-track"><div class="prof-fill"></div></div></div>
+          <div class="prof-row" data-pct="82"><span class="prof-name">Node.js + Express</span><span class="prof-pct">82%</span><div class="prof-track"><div class="prof-fill"></div></div></div>
+          <div class="prof-row" data-pct="75"><span class="prof-name">AWS + Docker + CI/CD</span><span class="prof-pct">75%</span><div class="prof-track"><div class="prof-fill"></div></div></div>
+          <div class="prof-row" data-pct="70"><span class="prof-name">Python + FastAPI</span><span class="prof-pct">70%</span><div class="prof-track"><div class="prof-fill"></div></div></div>
+        </div>
+      </div>
+
+      <!-- 5. Hexagon grid -->
+      <div class="skills-hex-grid">
+        <div class="hex-item lit">React</div>
+        <div class="hex-item">Node.js</div>
+        <div class="hex-item lit">n8n</div>
+        <div class="hex-item">MySQL</div>
+        <div class="hex-item lit">Claude API</div>
+        <div class="hex-item">Docker</div>
+        <div class="hex-item">AWS</div>
+        <div class="hex-item lit">Tailwind</div>
+        <div class="hex-item">PHP</div>
+        <div class="hex-item lit">Zapier</div>
+        <div class="hex-item">Vite</div>
+        <div class="hex-item">GSAP</div>
+        <div class="hex-item lit">Supabase</div>
+        <div class="hex-item">FastAPI</div>
+        <div class="hex-item lit">Python</div>
+        <div class="hex-item">WordPress</div>
+        <div class="hex-item">GitHub</div>
+        <div class="hex-item">CI/CD</div>
+        <div class="hex-item">REST API</div>
+        <div class="hex-item">LangChain</div>
+        <div class="hex-item">Elementor</div>
+        <div class="hex-item">Three.js</div>
+        <div class="hex-item">Yoast</div>
+        <div class="hex-item">Figma</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCE ───────────────────────────────────────────── -->
+  <section id="experience">
+    <div class="container">
+      <p class="section-label">Work History</p>
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Digital System Developer</h3>
+                <p class="timeline-sub">Frontend &amp; Automation Lead</p>
+              </div>
+              <span class="timeline-period">Dec 2024 – Present</span>
+            </div>
+            <p class="timeline-company">NARA Desert Escape — Dubai, UAE</p>
+            <ul class="timeline-points">
+              <li>Built internal React.js apps replacing manual workflows across hospitality venues</li>
+              <li>Pixel-perfect mobile-responsive UIs with React + Tailwind CSS</li>
+              <li>REST API integrations: Meta, GA4, Google Ads, Airtable, Notion</li>
+              <li>AI-powered dashboards using Claude API and GPT API</li>
+              <li>n8n and Zapier multi-step automation workflows</li>
+              <li>Full technical documentation for all systems</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Full Stack Developer</h3>
+                <p class="timeline-sub">&amp; IT Administrator</p>
+              </div>
+              <span class="timeline-period">Mar 2024 – Dec 2024</span>
+            </div>
+            <p class="timeline-company">DKV International Real Estate &amp; DKV General Trading</p>
+            <ul class="timeline-points">
+              <li>Built dkvrealestate.com on WordPress + Houzez from scratch</li>
+              <li>Built dkvgeneraltrading.com as WooCommerce e-commerce platform</li>
+              <li>SEO-optimised 300+ real estate + 500+ e-commerce listings</li>
+              <li>n8n workflows for lead tracking and CRM management</li>
+              <li>Claude API prompt-driven content generation for 300+ listings</li>
+              <li>Microsoft 365, Hostinger, LiteSpeed, SSL, DNS administration</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Web Development Intern</h3>
+                <p class="timeline-sub">Frontend Engineering</p>
+              </div>
+              <span class="timeline-period">May 2024 – Jul 2024</span>
+            </div>
+            <p class="timeline-company">QuantumTech IT Solution — Bengaluru, India</p>
+            <ul class="timeline-points">
+              <li>Responsive websites and landing pages from design to deployment</li>
+              <li>REST API backend integration and debugging</li>
+              <li>UI bug fixes and frontend implementation</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WORK ─────────────────────────────────────────────────── -->
+  <section id="work">
+    <div class="container">
+      <p class="section-label">Selected Work</p>
+      <h2 class="section-title">Projects</h2>
+
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web &amp; Apps</button>
+        <button class="filter-btn" data-filter="ai">AI &amp; Automation</button>
+        <button class="filter-btn" data-filter="wp">WordPress</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Web & Apps -->
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <div class="project-img-bg" style="--c1:#0d1a2d;--c2:#1a3a5c;">
+              <span class="project-initials">TA</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">AI-Powered IT Helpdesk</span>
+            <h3 class="project-title">TechAssist AI</h3>
+            <p class="project-desc">Intelligent IT helpdesk with AI ticket routing, knowledge base search, and analytics dashboard.</p>
+            <div class="project-stack">
+              <span>FastAPI</span><span>React</span><span>Tailwind</span><span>Claude API</span><span>SQLite</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <div class="project-img-bg" style="--c1:#0d1f2d;--c2:#183045;">
+              <span class="project-initials">NP</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Staff Management System</span>
+            <h3 class="project-title">NARA Pulse Manning App</h3>
+            <p class="project-desc">Internal staffing app replacing WhatsApp/spreadsheet workflows across multiple NARA hospitality venues.</p>
+            <div class="project-stack">
+              <span>React</span><span>Node.js</span><span>MySQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <div class="project-img-bg" style="--c1:#101a24;--c2:#1c3248;">
+              <span class="project-initials">NA</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">System Architecture</span>
+            <h3 class="project-title">NARA AssetTracker</h3>
+            <p class="project-desc">Asset management system tracking hardware, software, and SIMs with automated monitoring dashboard.</p>
+            <div class="project-stack">
+              <span>React</span><span>Node.js</span><span>MySQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <div class="project-img-bg" style="--c1:#0f1d2e;--c2:#162b42;">
+              <span class="project-initials">DC</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Web Application</span>
+            <h3 class="project-title">DKV Real Estate CRM</h3>
+            <p class="project-desc">Custom CRM for lead management, automated communications, and client tracking with secure RLS policies.</p>
+            <div class="project-stack">
+              <span>React</span><span>Node.js</span><span>Supabase</span><span>RLS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <div class="project-img-bg" style="--c1:#0c1a2e;--c2:#143050;">
+              <span class="project-initials">DR</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Web Development</span>
+            <h3 class="project-title">dkvrealestate.com</h3>
+            <p class="project-desc">Complete real estate platform with dynamic property listings, advanced search filters, and 300+ SEO-optimised pages.</p>
+            <div class="project-stack">
+              <span>WordPress</span><span>Houzez</span><span>PHP</span><span>MySQL</span><span>Yoast SEO</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <div class="project-img-bg" style="--c1:#101520;--c2:#1a273a;">
+              <span class="project-initials">DG</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">E-Commerce Platform</span>
+            <h3 class="project-title">dkvgeneraltrading.com</h3>
+            <p class="project-desc">Full e-commerce platform with payment gateway, shipping calculators, and 500+ SEO-optimised product listings.</p>
+            <div class="project-stack">
+              <span>WordPress</span><span>WooCommerce</span><span>OceanWP</span><span>PHP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI & Automation -->
+        <div class="project-card" data-category="ai">
+          <div class="project-image">
+            <div class="project-img-bg" style="--c1:#0a1520;--c2:#112035;">
+              <span class="project-initials">CP</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Automation &amp; n8n Workflows</span>
+            <h3 class="project-title">Competitor Price Monitor</h3>
+            <p class="project-desc">Dual-workflow n8n system scraping 14 products across 3 competitors daily — price change detection, Google Sheet updates, HTML email alerts.</p>
+            <div class="project-stack">
+              <span>n8n</span><span>Google Sheets</span><span>Gmail</span><span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="ai">
+          <div class="project-image">
+            <div class="project-img-bg" style="--c1:#0d1825;--c2:#152a3d;">
+              <span class="project-initials">MR</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">API Integration &amp; Automation</span>
+            <h3 class="project-title">Monthly Marketing Report Automation</h3>
+            <p class="project-desc">Fully automated monthly reporting pipeline pulling GA4, Meta Ads, Google Ads, Airtable into structured Notion pages with data validation.</p>
+            <div class="project-stack">
+              <span>Zapier</span><span>GA4 API</span><span>Meta Graph API</span><span>Google Ads API</span><span>Notion</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="ai">
+          <div class="project-image">
+            <div class="project-img-bg" style="--c1:#0b1622;--c2:#132234;">
+              <span class="project-initials">SA</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">AI &amp; Automation</span>
+            <h3 class="project-title">SEO Content Automation</h3>
+            <p class="project-desc">Prompt-driven content pipeline automating property listing descriptions and on-page SEO across 300+ listings via Claude API.</p>
+            <div class="project-stack">
+              <span>n8n</span><span>Claude API</span><span>WordPress</span><span>Yoast</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WordPress -->
+        <div class="project-card" data-category="wp">
+          <div class="project-image">
+            <div class="project-img-bg" style="--c1:#1a1008;--c2:#2d1e0f;">
+              <span class="project-initials">YP</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Full Stack Web Development</span>
+            <h3 class="project-title">Yuvantar Platform</h3>
+            <p class="project-desc">Educational and cultural organization website with brand styling, custom header/footer, admissions and program pages.</p>
+            <div class="project-stack">
+              <span>WordPress</span><span>Astra</span><span>Elementor</span><span>Hostinger</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="wp">
+          <div class="project-image">
+            <div class="project-img-bg" style="--c1:#0c1520;--c2:#152030;">
+              <span class="project-initials">RF</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">WordPress Development</span>
+            <h3 class="project-title">raidfendtechnologies.com</h3>
+            <p class="project-desc">Technology company website with custom WordPress plugin, popup modal contact form, MySQL storage, and automated email notifications.</p>
+            <div class="project-stack">
+              <span>WordPress</span><span>Custom PHP Plugin</span><span>MySQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="wp">
+          <div class="project-image">
+            <div class="project-img-bg" style="--c1:#12181e;--c2:#1c2830;">
+              <span class="project-initials">AE</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Multi-Site WordPress</span>
+            <h3 class="project-title">allianceedu.com &amp; 800itcare.com</h3>
+            <p class="project-desc">Responsive multi-page websites for education consultancy and IT services — lead capture, SEO-ready structure, performance optimisation.</p>
+            <div class="project-stack">
+              <span>WordPress</span><span>Elementor</span><span>PHP</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EDUCATION ────────────────────────────────────────────── -->
+  <section id="education">
+    <div class="container">
+      <p class="section-label">Background</p>
+      <h2 class="section-title">Education &amp; Certifications</h2>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-icon">&#127979;</div>
+          <h3 class="edu-degree">Bachelor of Computer Applications (BCA)</h3>
+          <p class="edu-inst">Bangalore University, India</p>
+          <p class="edu-period">Jan 2021 – Oct 2024</p>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">&#127979;</div>
+          <h3 class="edu-degree">+2 Computer Science</h3>
+          <p class="edu-inst">KRIST RAJ HSS, India</p>
+          <p class="edu-period">Jun 2019 – Jun 2021</p>
+        </div>
+      </div>
+
+      <h3 class="cert-heading">Certifications</h3>
+      <div class="cert-grid">
+
+        <div class="cert-card">
+          <div class="cert-badge">Cloud &amp; DevOps</div>
+          <h4 class="cert-title">Cloud &amp; DevOps Training Program</h4>
+          <p class="cert-org">Intellipaat, Bengaluru</p>
+          <p class="cert-period">Oct 2024 – Present</p>
+          <p class="cert-desc">AWS: EC2, RDS, IAM, Route 53, CloudFormation, Docker Compose, CI/CD via GitHub Actions</p>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-badge">AWS</div>
+          <h4 class="cert-title">AWS Course Certification Training</h4>
+          <p class="cert-org">Amazon Web Services</p>
+          <p class="cert-period">2024</p>
+          <p class="cert-desc">Comprehensive AWS cloud infrastructure and service training</p>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-badge">AWS</div>
+          <h4 class="cert-title">AWS Technical Essentials</h4>
+          <p class="cert-org">Intellipaat</p>
+          <p class="cert-period">2024</p>
+          <p class="cert-desc">Core AWS services, architecture, and best practices for cloud solutions</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ──────────────────────────────────────────────── -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <p class="section-label">Get In Touch</p>
+        <h2 class="contact-heading">Let's Build<br /><span>Something</span></h2>
+        <p class="contact-sub">Available for freelance projects in Dubai, UAE</p>
+        <div class="contact-links">
+          <a href="mailto:vishnuss860@gmail.com" class="contact-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+            vishnuss860@gmail.com
+          </a>
+          <a href="https://linkedin.com/in/vishnu-s-44a436250" target="_blank" rel="noopener" class="contact-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            linkedin.com/in/vishnu-s-44a436250
+          </a>
+          <a href="https://github.com/Vfxchu" target="_blank" rel="noopener" class="contact-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            github.com/Vfxchu
+          </a>
+        </div>
+        <a href="mailto:vishnuss860@gmail.com" class="btn-outline btn-large">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────── -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <span class="footer-logo">VS.</span>
+          <span class="footer-name">Vishnu Sreekumar — Dubai, UAE</span>
+        </div>
+        <div class="footer-center">Built with React, Three.js, GSAP</div>
+        <div class="footer-right">
+          <a href="https://github.com/Vfxchu" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com/in/vishnu-s-44a436250" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2025 Vishnu Sreekumar. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

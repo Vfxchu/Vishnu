@@ -1,0 +1,13 @@
+# Node modules
+node_modules/
+dist/
+.env
+
+# Windows-specific files
+Thumbs.db
+Desktop.ini
+
+# IDE-specific files
+.vscode/
+.claude/
+.gemini/
