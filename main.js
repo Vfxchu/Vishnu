@@ -133,10 +133,32 @@ class Portfolio {
     this._animateSkills();
 
     // Experience
-    gsap.from('.exp-header', { scrollTrigger: { trigger: '#experience', start: 'top 80%', once: true }, opacity: 0, y: 30, duration: 0.7, ease: 'power2.out' });
+    gsap.from('.exp-header', {
+      scrollTrigger: { trigger: '#experience', start: 'top 80%', once: true },
+      opacity: 0, y: 30, duration: 0.8, ease: 'power2.out'
+    });
+    gsap.from('.exp-timeline::before', {
+      scrollTrigger: { trigger: '.exp-timeline', start: 'top 80%', once: true },
+      scaleY: 0, transformOrigin: 'top', duration: 1.2, ease: 'power2.out'
+    });
     document.querySelectorAll('.exp-item').forEach((item, i) => {
-      gsap.from(item.querySelector('.exp-dot'), { scrollTrigger: { trigger: item, start: 'top 85%', once: true }, opacity: 0, scale: 0, duration: 0.4, ease: 'back.out(1.7)', delay: i * 0.15 });
-      gsap.from(item.querySelector('.exp-card'), { scrollTrigger: { trigger: item, start: 'top 85%', once: true }, opacity: 0, x: -30, duration: 0.7, ease: 'power2.out', delay: i * 0.15 });
+      const dot  = item.querySelector('.exp-dot');
+      const card = item.querySelector('.exp-card');
+      const tags = item.querySelectorAll('.exp-tags span');
+
+      gsap.from(dot, {
+        scrollTrigger: { trigger: item, start: 'top 82%', once: true },
+        opacity: 0, scale: 0, duration: 0.5, ease: 'back.out(2)', delay: 0.1 + i * 0.12
+      });
+      gsap.from(card, {
+        scrollTrigger: { trigger: item, start: 'top 82%', once: true },
+        opacity: 0, x: -40, duration: 0.7, ease: 'power3.out', delay: 0.15 + i * 0.12
+      });
+      gsap.from(tags, {
+        scrollTrigger: { trigger: item, start: 'top 82%', once: true },
+        opacity: 0, y: 10, duration: 0.4, ease: 'power2.out',
+        stagger: 0.04, delay: 0.35 + i * 0.12
+      });
     });
 
     // Work
