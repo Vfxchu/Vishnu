@@ -52,6 +52,7 @@ class Portfolio {
     this.setupNavigation();
     this.setupSectionAnimations();
     this.setupProjectFilter();
+    this.setupServiceTabs();
     this.setupMobileMenu();
   }
 
@@ -333,10 +334,10 @@ class Portfolio {
     });
   }
 
-  // ── Project filter tabs ──────────────────────────────────────
+  // ── Project filter tabs (new 7-category system) ──────────────
   setupProjectFilter() {
     const btns  = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.project-card');
+    const cards = document.querySelectorAll('.project-card-new');
 
     btns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -355,8 +356,52 @@ class Portfolio {
           }
         });
 
-        // Refresh ScrollTrigger after DOM changes
         ScrollTrigger.refresh();
+      });
+    });
+  }
+
+  // ── Service category tabs ─────────────────────────────────────
+  setupServiceTabs() {
+    const tabs   = document.querySelectorAll('.svc-tab');
+    const panels = document.querySelectorAll('.svc-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const svcKey = tab.dataset.svc;
+        panels.forEach(panel => {
+          if (panel.id === `svc-${svcKey}`) {
+            panel.classList.add('active');
+          } else {
+            panel.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    // Scroll reveal for services section
+    gsap.from('.svc-header', {
+      scrollTrigger: { trigger: '#services', start: 'top 80%', once: true },
+      opacity: 0, y: 30, duration: 0.7, ease: 'power2.out'
+    });
+    gsap.from('.svc-tabs', {
+      scrollTrigger: { trigger: '#services', start: 'top 75%', once: true },
+      opacity: 0, y: 20, duration: 0.6, ease: 'power2.out', delay: 0.2
+    });
+    gsap.from('.svc-custom-cta', {
+      scrollTrigger: { trigger: '.svc-custom-cta', start: 'top 85%', once: true },
+      opacity: 0, y: 30, duration: 0.7, ease: 'power2.out'
+    });
+
+    // Scroll reveal for new project cards
+    document.querySelectorAll('.project-card-new').forEach((card, i) => {
+      gsap.from(card, {
+        scrollTrigger: { trigger: card, start: 'top 90%', once: true },
+        opacity: 0, y: 40, scale: 0.96, duration: 0.55, ease: 'power2.out',
+        delay: (i % 2) * 0.07
       });
     });
   }
