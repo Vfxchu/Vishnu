@@ -10,6 +10,9 @@ class Portfolio {
   }
 
   async init() {
+    // ── 0. Register plugins once, before anything else ──────────
+    gsap.registerPlugin(ScrollTrigger);
+
     // ── 1. Setup engines ────────────────────────────────────────
     const scrubCanvas  = document.getElementById('scrubCanvas');
     const shaderCanvas = document.getElementById('shaderCanvas');
@@ -54,12 +57,15 @@ class Portfolio {
     this.setupProjectFilter();
     this.setupServiceTabs();
     this.setupMobileMenu();
+
+    // ── 6. Refresh after all sections are wired up ───────────────
+    // Needed because new sections (#services) changed total page height
+    ScrollTrigger.refresh();
   }
 
   // ── Hero scrub + shader ──────────────────────────────────────
   setupScrollTrigger() {
-    gsap.registerPlugin(ScrollTrigger);
-
+    // ScrollTrigger already registered in init()
     ScrollTrigger.create({
       trigger: '#hero',
       start: 'top top',
